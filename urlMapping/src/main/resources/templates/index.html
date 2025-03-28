@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h1 {
+        color : red;
+        font-size : 30px;
+    }
+</style>
+<body>
+    <h1 th:text="'Welcome boot'"></h1>
+    <a th:href="@{/test1}">test1 Get 방식</a> <br>
+    <a th:href="@{/test2}">test2 Get 방식</a> <br>
+    <a th:href="@{/sub1/test3}">/sub1/test3 Get 방식</a> <br>
+    <a th:href="@{/sub1/test4}">/sub1/test4 Get 방식</a> <br>
+    <a th:href="@{/sub1/test5}">/sub1/test5 Get 방식</a> <br> <br>
+    <form method="post" action="/test6">
+        ID : <input type="text" name="userid"/><br>
+        PW : <input type="password" name="pass"/> <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

@@ -8,6 +8,7 @@
     <h1 th:text="'Welcome GetParmeter'"></h1>
     <a th:href="@{/test1?data1=100&data2=200&data3=300&data3=400}">test1 HttpServletRequest</a> <br>
     <a th:href="@{/test2?data1=100&data2=200}">test2 WebRequest</a> <br>
-    <a th:href="@{/test3/100/200/300}">test3 @PathVariable</a>
+    <a th:href="@{/test3/100/200/300}">test3 @PathVariable</a> <br>
+    <a th:href="@{/test4?data1=100&data2=200&data3=300&data3=400}">test4 @RequestParam</a>
 </body>
 </html>

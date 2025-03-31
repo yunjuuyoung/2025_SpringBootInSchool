@@ -60,7 +60,8 @@ public class TestController {
     }
 
     @GetMapping("/test5")
-    public String test5(@ModelAttribute GetParameterDTO dto) {
+//    public String test5(@ModelAttribute GetParameterDTO dto)
+    public String test5(GetParameterDTO dto) {
         System.out.println("data1 : " + dto.getData1());
         System.out.println("data2 : " + dto.getData2());
         return "result";

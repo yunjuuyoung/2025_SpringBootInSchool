@@ -19,17 +19,12 @@ public class ScoreController {
     public String score(ScoreDto dto, Model model) {
         String result = "이름 : " + dto.getName() + "\n";
 
-        int sumScore = dto.getEngScore() + dto.getKorScore() + dto.getMathScore();
-        double avgScore = sumScore / 3.0;
+        dto.setSumScore(dto.getEngScore() + dto.getKorScore() + dto.getMathScore());
+        String avg = String.format("%.2f", dto.getSumScore() / 3.0);
+        dto.setAvgScore(Double.parseDouble(avg));
 
-        result += "국어 : " + dto.getKorScore() + "\n";
-        result += "영어 : " + dto.getEngScore() + "\n";
-        result += "수학 : " + dto.getMathScore() + "\n";
-        result += "총점 : " + sumScore + "\n";
-        result += "평균 : " + avgScore + "\n";
+        model.addAttribute("list", dto);
 
-        model.addAttribute("list", result.replaceAll("\\r?\\n", "<br/>"));
-
-        return "result";
+        return "score_result";
     }
 }

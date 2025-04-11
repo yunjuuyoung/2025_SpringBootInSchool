@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h2,div {
+        margin : 20px;
+    }
+</style>
+<body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+    <h2 th:text="'Score Result!'"></h2>
+    <div>
+        이름 : <span th:text="${list.name}"></span> <br>
+        국어 : <span th:text="${list.korScore}"></span> <br>
+        영어 : <span th:text="${list.engScore}"></span> <br>
+        수학 : <span th:text="${list.mathScore}"></span> <br>
+        총점 : <span th:text="${list.sumScore}"></span> <br>
+        평균 : <span th:text="${list.avgScore}"></span> <br>
+    </div>
+
+</body>
+</html>

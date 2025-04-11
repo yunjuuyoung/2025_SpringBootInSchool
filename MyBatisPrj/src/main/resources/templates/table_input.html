@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+  <h2 th:text="'구구단'"></h2>
+  <form action="/times-tables" method="post">
+    단을 입력하세요 : <input type="number" name="number">
+    <button type="submit">실행</button>
+  </form>
+</body>
+</html>

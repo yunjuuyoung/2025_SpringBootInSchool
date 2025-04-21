@@ -10,7 +10,7 @@ import java.util.List;
 public interface MemoMapper {
     // crud
     public void insert(MemoDto dto);
-    public void update(int idx);
+    public void update(MemoDto dto);
     public void delete(int idx);
     public List<MemoDto> listAll();
 }

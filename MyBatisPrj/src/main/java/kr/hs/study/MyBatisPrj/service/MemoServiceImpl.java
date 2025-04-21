@@ -14,7 +14,7 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void insert(MemoDto dto) {
-
+        mapper.insert(dto);
     }
 
     @Override

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.hs.study.MyBatisPrj.mapper.MemoMapper">
+    <insert id="insert" parameterType="kr.hs.study.MyBatisPrj.dto.MemoDto">
+        insert into memoInfo(idx, writer, memo) values(seq.nextval, #{writer}, #{memo})
+    </insert>
+</mapper>

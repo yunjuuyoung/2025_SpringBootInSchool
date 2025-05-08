@@ -7,6 +7,11 @@
 <body>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
   <h1 th:text="result"></h1>
-  <p th:utext="${list}"></p>
+  <div th:each="item:${list}">
+      <p th:text="${item.idx}"></p>
+      <p th:text="${item.writer}"></p>
+      <p th:text="${item.memo}"></p>
+      <p th:text="${item.post_date}"></p>
+  </div>
 </body>
 </html>

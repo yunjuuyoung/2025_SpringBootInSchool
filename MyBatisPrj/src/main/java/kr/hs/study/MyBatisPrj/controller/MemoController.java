@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/memo")
 public class MemoController {
@@ -25,5 +27,12 @@ public class MemoController {
         service.insert(dto);
 
         return "memo";
+    }
+
+    @GetMapping("/list")
+    public String listAll(Model model) {
+        List<MemoDto> memoList = service.listAll();
+        model.addAttribute("list", memoList);
+        return "result";
     }
 }

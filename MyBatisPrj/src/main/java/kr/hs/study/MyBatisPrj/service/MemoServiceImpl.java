@@ -29,6 +29,6 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public List<MemoDto> listAll() {
-        return List.of();
+        return mapper.listAll();
     }
 }

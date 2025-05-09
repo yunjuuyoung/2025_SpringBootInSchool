@@ -13,6 +13,9 @@
   button {
     margin-top : 10px;
   }
+  .idx {
+        font-weight: bold;
+    }
 </style>
   <div>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block> <h1 th:text="'NOTE MEMO'"></h1>
@@ -23,5 +26,27 @@
     </form>
   </div>
   <hr>
+<div>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Writer</th>
+      <th scope="col">Memo</th>
+      <th scope="col">Post_date</th>
+      <th scope="col">Etc</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item:${memoList}">
+      <td class="idx" th:text="${item.idx}"></td>
+      <td th:text="${item.writer}"></td>
+      <td th:text="${item.memo}"></td>
+      <td th:text="${item.post_date}"></td>
+      <td th:text="etc"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>

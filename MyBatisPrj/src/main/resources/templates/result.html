@@ -8,10 +8,22 @@
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
   <h1 th:text="result"></h1>
   <div th:each="item:${list}">
-      <p th:text="${item.idx}"></p>
-      <p th:text="${item.writer}"></p>
-      <p th:text="${item.memo}"></p>
-      <p th:text="${item.post_date}"></p>
+      <table class="table">
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Writer</th>
+              <th scope="col">Memo</th>
+              <th scope="col">Post_date</th>
+          </tr>
+          <tbody>
+          <tr>
+              <td th:text="${item.idx}"></td>
+              <td th:text="${item.writer}"></td>
+              <td th:text="${item.memo}"></td>
+              <td th:text="${item.post_date}"></td>
+          </tr>
+          </tbody>
+      </table>
   </div>
 </body>
 </html>

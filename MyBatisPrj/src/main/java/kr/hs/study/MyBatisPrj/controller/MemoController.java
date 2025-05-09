@@ -25,14 +25,13 @@ public class MemoController {
     @PostMapping()
     public String insert(MemoDto dto) {
         service.insert(dto);
-
-        return "memo";
+        return "redirect:/memo/list";
     }
 
     @GetMapping("/list")
     public String listAll(Model model) {
         List<MemoDto> memoList = service.listAll();
-        model.addAttribute("list", memoList);
-        return "result";
+        model.addAttribute("memoList", memoList);
+        return "list";
     }
 }

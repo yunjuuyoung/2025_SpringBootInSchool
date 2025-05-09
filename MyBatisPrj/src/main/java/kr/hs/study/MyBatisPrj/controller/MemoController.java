@@ -18,10 +18,8 @@ public class MemoController {
     private MemoService service;
 
     @GetMapping()
-    public String memo(Model model) {
-        List<MemoDto> memoList = service.listAll();
-        model.addAttribute("memoList", memoList);
-        return "memo";
+    public String memo() {
+        return "redirect:/memo/list";
         }
 
     @PostMapping()
@@ -30,10 +28,10 @@ public class MemoController {
         return "redirect:/memo";
     }
 
-//    @GetMapping("/list")
-//    public String listAll(Model model) {
-//        List<MemoDto> memoList = service.listAll();
-//        model.addAttribute("memoList", memoList);
-//        return "memo";
-//    }
+    @GetMapping("/list")
+    public String listAll(Model model) {
+        List<MemoDto> memoList = service.listAll();
+        model.addAttribute("memoList", memoList);
+        return "memo";
+    }
 }

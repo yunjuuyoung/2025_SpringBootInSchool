@@ -5,9 +5,7 @@ import kr.hs.study.MyBatisPrj.service.MemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,9 +16,9 @@ public class MemoController {
     private MemoService service;
 
     @GetMapping()
-    public String memo() {
+    public String memo() { ;
         return "redirect:/memo/list";
-        }
+    }
 
     @PostMapping()
     public String insert(MemoDto dto) {
@@ -33,5 +31,18 @@ public class MemoController {
         List<MemoDto> memoList = service.listAll();
         model.addAttribute("memoList", memoList);
         return "memo";
+    }
+
+    @GetMapping("/{idx}")
+    public String edit_from(@PathVariable("idx") int idx, Model model) {
+        MemoDto dto = service.selectMemo(idx);
+        model.addAttribute("memo", dto);
+        return "edit_form";
+    }
+
+    @PostMapping("/edit")
+    public String edit(MemoDto dto, Model model) {
+        service.update(dto);
+        return "redirect:/memo";
     }
 }

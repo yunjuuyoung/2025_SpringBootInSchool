@@ -7,4 +7,10 @@
     <select id="listAll" resultType="kr.hs.study.MyBatisPrj.dto.MemoDto">
         select * from memoInfo order by idx desc
     </select>
+    <select id="selectMemo" resultType="kr.hs.study.MyBatisPrj.dto.MemoDto">
+        select * from memoInfo where idx=#{idx}
+    </select>
+    <update id="update" parameterType="kr.hs.study.MyBatisPrj.dto.MemoDto">
+        update memoInfo set writer=#{writer}, memo=#{memo} where idx=#{idx}
+    </update>
 </mapper>

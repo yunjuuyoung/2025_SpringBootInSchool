@@ -43,7 +43,8 @@
       <td th:text="${item.writer}"></td>
       <td th:text="${item.memo}"></td>
       <td th:text="${item.post_date}"></td>
-      <td th:text="etc"></td>
+      <td><a th:href="@{'/memo/'+${item.idx}}">Update</a>
+          <a th:href="@{'/memo/'+${item.idx}}">Delete</a></td>
     </tr>
     </tbody>
   </table>

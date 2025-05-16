@@ -11,4 +11,6 @@ public interface MemoService {
     public void update(MemoDto dto);
     public void delete(int idx);
     public List<MemoDto> listAll();
+
+    public MemoDto selectMemo(int idx);
 }

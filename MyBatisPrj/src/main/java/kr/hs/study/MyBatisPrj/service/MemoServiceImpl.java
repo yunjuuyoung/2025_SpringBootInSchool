@@ -19,7 +19,7 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void update(MemoDto dto) {
-
+        mapper.update(dto);
     }
 
     @Override
@@ -30,5 +30,10 @@ public class MemoServiceImpl implements MemoService {
     @Override
     public List<MemoDto> listAll() {
         return mapper.listAll();
+    }
+
+    @Override
+    public MemoDto selectMemo(int idx) {
+        return mapper.selectMemo(idx);
     }
 }

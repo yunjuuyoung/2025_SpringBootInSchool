@@ -24,7 +24,7 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void delete(int idx) {
-
+        mapper.delete(idx);
     }
 
     @Override

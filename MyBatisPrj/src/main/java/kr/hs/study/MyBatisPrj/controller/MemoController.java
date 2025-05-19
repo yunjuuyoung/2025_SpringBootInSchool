@@ -45,4 +45,10 @@ public class MemoController {
         service.update(dto);
         return "redirect:/memo";
     }
+
+    @GetMapping("/delete/{idx}")
+    public String delete_form(@PathVariable("idx") int idx, Model model) {
+        service.delete(idx);
+        return "redirect:/memo";
+    }
 }

@@ -13,4 +13,7 @@
     <update id="update" parameterType="kr.hs.study.MyBatisPrj.dto.MemoDto">
         update memoInfo set writer=#{writer}, memo=#{memo} where idx=#{idx}
     </update>
+    <delete id="delete" parameterType="kr.hs.study.MyBatisPrj.dto.MemoDto">
+        delete from memoInfo where idx=#{idx}
+    </delete>
 </mapper>

@@ -9,15 +9,67 @@
   div, h1{
     margin : 20px;
   }
+  a{
+    margin : 5px;
+  }
 </style>
 </head>
 <body>
   <div>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block> <h1 th:text="'Todo App'"></h1>
-    <form method="post" action="todo">
-      <input type="text" name="content" placeholder="할 일을 적어주세요">
-      <button type="submit" class="btn btn-primary">Save</button>
-    </form>
+    <section class="vh-100" style="background-color: #eee;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-lg-9 col-xl-7">
+            <div class="card rounded-3">
+              <div class="card-body p-4">
+
+                <h4 th:text="'Todo List'" class="text-center my-3 pb-3"></h4>
+
+                <form method="post" action="todo" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                  <div class="col-12">
+                    <div data-mdb-input-init class="form-outline">
+                      <input name="content" type="text" id="form1" class="form-control" placeholder="할 일을 적어주세요" />
+                    </div>
+                    <div data-mdb-input-init class="form-outline">
+                      <input name="password" type="password" id="form2" class="form-control"  placeholder="비밀번호를 적어주세요" />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+
+                <table class="table mb-4">
+                  <thead>
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Is done</th>
+                    <th scope="col">Post Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="item:${todoList}">
+                    <td class="idx" th:text="${item.idx}"></td>
+                    <td th:text="${item.content}"></td>
+                    <td th:text="${item.status}"></td>
+                    <td th:text="${item.postDate}"></td>
+                    <td><a th:href="@{'/todo/'+${item.idx}}">Update</a>
+                        <a th:href="@{'/todo/'+${item.idx}+'/done'}">Done</a>
+                        <a th:href="@{'/todo/'+${item.idx}+'/delete'}">Delete</a></td>
+                  </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 </html>

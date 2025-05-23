@@ -9,6 +9,7 @@ public interface TodoService {
     public void insert(TodoDto dto);
     public void update(TodoDto dto);
     public void delete(int idx);
-    public List<MemoDto> selectAll();
-    public MemoDto selectOne(int idx);
+    public List<TodoDto> selectAll();
+    public TodoDto selectOne(int idx);
+    public void conplete(int idx);
 }

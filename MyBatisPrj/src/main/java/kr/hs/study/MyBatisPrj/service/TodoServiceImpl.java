@@ -21,21 +21,27 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public void update(TodoDto dto) {
-
+        mapper.update(dto);
     }
 
     @Override
     public void delete(int idx) {
-
+        mapper.delete(idx);
     }
 
     @Override
-    public List<MemoDto> selectAll() {
-        return List.of();
+    public List<TodoDto> selectAll() {
+        return mapper.selectAll();
     }
 
     @Override
-    public MemoDto selectOne(int idx) {
-        return null;
+    public TodoDto selectOne(int idx) {
+        return mapper.selectOne(idx);
     }
+
+    @Override
+    public void conplete(int idx) {
+        mapper.complete(idx);
+    }
+
 }

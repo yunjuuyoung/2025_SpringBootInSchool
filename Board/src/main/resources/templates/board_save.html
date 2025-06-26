@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    textarea {
+      margin-top: 5px;
+      width: 170px;
+      height: 200px;
+    }
+</style>
+
+<body>
+<h1 th:text="'글 작성'"></h1>
+<form action="/board/save" method="post">
+  <input type="text" placeholder="작성자 입력" name="boardWriter"><br>
+  <input type="password" placeholder="비밀번호 입력" name="boardPass"><br>
+  <input type="text" placeholder="제목 입력" name="boardTitle"><br>
+  <textarea type="text" placeholder="내용 입력" name="boardContents"></textarea><br>
+<!--  <input type="text" placeholder="내용 입력" name="boardContents">-->
+  <button type="submit">작성</button>
+</form>
+</body>
+</html>

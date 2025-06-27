@@ -26,7 +26,7 @@ public class BoardController {
     }
 
     @PostMapping("/edit")
-    public String edit(BoardDto dto) {
+    public String edit(BoardDto dto, Model model) {
         BoardDto existingData = service.selectOne(dto.getId());
 
         if (existingData.getBoardPass().equals(dto.getBoardPass())) {
@@ -34,6 +34,7 @@ public class BoardController {
             return "redirect:/board/" + dto.getId();
         }
 
+        model.addAttribute("message", "게시글 수정에 실피하였습니다.");
         return "redirect:/board/" + dto.getId() + "/edit";
     }
 

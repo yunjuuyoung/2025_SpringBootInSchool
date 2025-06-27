@@ -10,6 +10,9 @@
 <select id="selectOne" resultType="hs.kr.study.Board.dto.BoardDto">
     select * from board where id=#{id}
 </select>
+<update id="update" parameterType="hs.kr.study.Board.dto.BoardDto">
+    update board set boardWriter=#{boardWriter}, boardTitle=#{boardTitle}, boardContents=#{boardContents} where id=#{id}
+</update>
 <update id="count" parameterType="hs.kr.study.Board.dto.BoardDto">
     update board set boardHits=boardHits+1 where id=#{id}
 </update>

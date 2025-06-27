@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+  textarea {
+    margin-top: 5px;
+    width: 170px;
+    height: 200px;
+  }
+</style>
+
+<body>
+<h1 th:text="'게시물 수정'"></h1>
+<form action="/board/edit" method="post">
+  <input type="hidden" th:value="${posts.id}" name="id">
+  <input name="boardWriter" type="text" th:value="${posts.boardWriter}"><br>
+  <input type="password" name="boardPass"><br>
+  <input type="text" th:value="${posts.boardTitle}" name="boardTitle"><br>
+  <textarea type="text" th:text="${posts.boardContents}" name="boardContents"></textarea><br>
+  <button type="submit">수정</button>
+</form>
+</body>
+</html>

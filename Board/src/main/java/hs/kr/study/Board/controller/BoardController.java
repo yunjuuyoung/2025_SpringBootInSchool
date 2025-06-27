@@ -18,6 +18,25 @@ public class BoardController {
     @Autowired
     BoardService service;
 
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable("id") int id, Model model) {
+        BoardDto dto = service.selectOne(id);
+        model.addAttribute("posts", dto);
+        return "posts_edit";
+    }
+
+    @PostMapping("/edit")
+    public String edit(BoardDto dto) {
+        BoardDto existingData = service.selectOne(dto.getId());
+
+        if (existingData.getBoardPass().equals(dto.getBoardPass())) {
+            service.update(dto);
+            return "redirect:/board/" + dto.getId();
+        }
+
+        return "redirect:/board/" + dto.getId() + "/edit";
+    }
+
     @GetMapping("/save")
     public String save() {
         return "board_save";
@@ -31,9 +50,11 @@ public class BoardController {
     }
 
     @GetMapping("/{id}")
-    public String board(@PathVariable("id") int id) {
+    public String board(@PathVariable("id") int id, Model model) {
         service.count(id);
-        return "redirect:/board";
+        BoardDto dto = service.selectOne(id);
+        model.addAttribute("posts", dto);
+        return "posts";
     }
 
     @GetMapping()

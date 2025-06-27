@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    table {
+        margin-bottom: 10px;
+    }
+    table, th, td {
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 8px;
+    }
+    .title {
+      font-weight: bold;
+    }
+</style>
+
+<body>
+<h1 th:text="'게시물'"></h1>
+<table border="1">
+    <tr>
+        <td class="title" th:text="ID"></td>
+        <td th:text="${posts.id}"></td>
+    </tr>
+    <tr>
+        <td class="title" th:text="Writer"></td>
+        <td th:text="${posts.boardWriter}"></td>
+    </tr>
+    <tr>
+        <td class="title" th:text="Date"></td>
+        <td th:text="${posts.boardCreatedTime}"></td>
+    </tr>
+    <tr>
+        <td class="title" th:text="Hits"></td>
+        <td th:text="${posts.boardHits}"></td>
+    </tr>
+    <tr>
+        <td class="title" th:text="Title"></td>
+        <td th:text="${posts.boardTitle}"></td>
+    </tr>
+    <tr>
+        <td class="title" th:text="Contents"></td>
+        <td th:text="${posts.boardContents}"></td>
+    </tr>
+</table>
+<button type="button" onclick="">목록</button>
+<button type="button" th:onclick="'location.href=\'' + @{/board/{id}/edit(id=${posts.id})} + '\''">수정</button>
+<button type="button">삭제</button>
+<form>
+    <input placeholder="작성자">
+    <input placeholder="내용">
+    <button type="submit">댓글 작성</button>
+</form>
+</body>
+</html>

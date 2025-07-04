@@ -16,4 +16,7 @@
 <update id="count" parameterType="hs.kr.study.Board.dto.BoardDto">
     update board set boardHits=boardHits+1 where id=#{id}
 </update>
+    <delete id="delete" parameterType="hs.kr.study.Board.dto.BoardDto">
+        delete from board where id=#{id}
+    </delete>
 </mapper>

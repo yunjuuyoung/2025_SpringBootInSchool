@@ -1,6 +1,7 @@
 package hs.kr.study.Board.dao;
 
 import hs.kr.study.Board.dto.BoardDto;
+import hs.kr.study.Board.dto.CommentDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hs.kr.study.Board.dao.CommentDao">
+<insert id="insert" parameterType="hs.kr.study.Board.dto.CommentDto">
+    insert into comment1(id, commentWriter, commentContents, boardId) values(comment_seq.nextval, #{commentWriter}, #{commentContents}, #{boardId})
+</insert>
+<select id="selectAll" resultType="hs.kr.study.Board.dto.CommentDto">
+    select * from comment1
+</select>
+<select id="selectByBoardId" resultType="hs.kr.study.Board.dto.CommentDto">
+    select * from comment1 where boardId=#{boardId}
+</select>
+<select id="selectOne" resultType="hs.kr.study.Board.dto.CommentDto">
+    select * from comment1 where id=#{id}
+</select>
+<update id="update" parameterType="hs.kr.study.Board.dto.CommentDto">
+    update comment1 set commentWriter=#{commentWriter}, commentContents=#{commentContents} where id=#{id}
+</update>
+    <delete id="delete" parameterType="hs.kr.study.Board.dto.CommentDto">
+        delete from comment1 where id=#{id}
+    </delete>
+</mapper>

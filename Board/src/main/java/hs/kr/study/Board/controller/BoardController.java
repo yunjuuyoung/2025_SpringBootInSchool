@@ -1,7 +1,9 @@
 package hs.kr.study.Board.controller;
 
 import hs.kr.study.Board.dto.BoardDto;
+import hs.kr.study.Board.dto.CommentDto;
 import hs.kr.study.Board.service.BoardService;
+import hs.kr.study.Board.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,9 @@ import java.util.List;
 public class BoardController {
     @Autowired
     BoardService service;
+
+    @Autowired
+    CommentService commentService;
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") int id, Model model) {
@@ -74,7 +79,9 @@ public class BoardController {
     public String board(@PathVariable("id") int id, Model model) {
         service.count(id);
         BoardDto dto = service.selectOne(id);
+        List<CommentDto> comments = commentService.selectByBoardId(id);
         model.addAttribute("posts", dto);
+        model.addAttribute("comments", comments);
         return "posts";
     }
 

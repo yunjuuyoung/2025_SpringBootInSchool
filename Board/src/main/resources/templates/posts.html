@@ -54,11 +54,29 @@
 <button onclick="updateFn()">수정</button>
 <button onclick="deleteFn()">삭제</button>
 
-<form>
-    <input placeholder="작성자">
-    <input placeholder="내용">
+<form action="/comments/add" method="post">
+    <input type="hidden" th:value="${posts.id}" name="boardId">
+    <input type="text" placeholder="작성자" name="commentWriter">
+    <input type="text" placeholder="내용" name="commentContents">
     <button type="submit">댓글 작성</button>
 </form>
+<br>
+<table border="1">
+    <thead>
+    <tr>
+<!--        <th scope="col">ID</th>-->
+        <th scope="col">Comment Writer</th>
+        <th scope="col">Comment Contents</th>
+        <th scope="col">Comment CreatedTime</th>
+    </tr>
+    </thead>
+    <tr th:each="item:${comments}">
+<!--        <td th:text="${item.id}"></td>-->
+        <td th:text="${item.commentWriter}"></td>
+        <td th:text="${item.commentContents}"></td>
+        <td th:text="${item.commentCreatedTime}"></td>
+    </tr>
+</table>
 </body>
 <script>
     const boardFn = () => {

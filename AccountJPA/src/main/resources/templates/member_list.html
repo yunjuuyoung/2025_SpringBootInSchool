@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table, th, td {
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 8px;
+    }
+</style>
+<body>
+<h1 th:text="'멤버 목록'"></h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Member Email</th>
+        <th scope="col">Member Password</th>
+        <th scope="col">Member Name</th>
+        <th scope="col">상세 조회</th>
+        <th scope="col">삭제</th>
+    </tr>
+    </thead>
+    <tr th:each="item:${members}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.email}"></td>
+        <td th:text="${item.password}"></td>
+        <td th:text="${item.name}"></td>
+        <td><a th:href="@{'/member/' + ${item.id}}">조회</a></td>
+        <td><a th:href="@{'/member/' + ${item.id} + '/delete'}">삭제</a></td>
+    </tr>
+</table>
+</body>
+</html>

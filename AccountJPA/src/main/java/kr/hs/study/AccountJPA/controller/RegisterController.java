@@ -33,9 +33,11 @@ public class RegisterController {
     @PostMapping("/login")
     public String login(MemberDto dto, HttpSession session) {
         MemberDto member = service.login(dto);
-        if (member == null) {
-            return "redirect:/login";
+        if (member != null) {
+            session.setAttribute("loginEmail", member.getEmail());
+            return "main";
+        } else {
+            return "login";
         }
-        return "home";
     }
 }

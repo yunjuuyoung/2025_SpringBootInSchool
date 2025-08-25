@@ -1,5 +1,6 @@
 package kr.hs.study.AccountJPA.controller;
 
+import jakarta.servlet.http.HttpSession;
 import kr.hs.study.AccountJPA.dto.MemberDto;
 import kr.hs.study.AccountJPA.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,14 @@ public class RegisterController {
     public String register(MemberDto dto) {
         service.save(dto);
         return "redirect:/";
+    }
+
+    @PostMapping("/login")
+    public String login(MemberDto dto, HttpSession session) {
+        MemberDto member = service.login(dto);
+        if (member == null) {
+            return "redirect:/login";
+        }
+        return "home";
     }
 }

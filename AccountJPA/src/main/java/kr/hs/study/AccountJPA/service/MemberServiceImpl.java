@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -33,6 +34,21 @@ public class MemberServiceImpl implements MemberService{
         }
         return dtoList;
 
+    }
+
+    @Override
+    public MemberDto login(MemberDto dto) {
+        Optional<MemberEntity> memberEntity = repo.findByEmail(dto.getEmail());
+        if (memberEntity.isPresent()) {
+            MemberEntity memberEmail = memberEntity.get();
+            if(memberEmail.getPassword().equals(dto.getPassword())) {
+                MemberDto memberDto = MemberEntity.toDto(memberEmail);
+                return memberDto;
+            } else {
+                return null;
+            }
+        }
+        return null;
     }
 
 }

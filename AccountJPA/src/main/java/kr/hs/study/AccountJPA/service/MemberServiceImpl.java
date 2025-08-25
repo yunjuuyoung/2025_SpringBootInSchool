@@ -51,4 +51,15 @@ public class MemberServiceImpl implements MemberService{
         return null;
     }
 
-}
+    @Override
+    public MemberDto findByEmail(String email) {
+        Optional<MemberEntity> memberEntity = repo.findByEmail(email);
+        if (memberEntity.isPresent()) {
+            MemberEntity member = memberEntity.get();
+                return MemberEntity.toDto(member);
+            } else {
+                return null;
+            }
+        }
+
+    }

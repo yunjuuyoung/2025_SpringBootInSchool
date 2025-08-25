@@ -10,4 +10,6 @@ public interface MemberService {
     public List<MemberDto> findAll();
 
     public MemberDto login(MemberDto dto);
+
+    MemberDto findByEmail(String email);
 }

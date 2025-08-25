@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'내 정보 수정하기'"></h1>
+<form action="/member/update" method="post">
+    <input type="hidden" name="id" th:value="${member.id}">
+Name : <input name="name" type="text" th:value="${member.name}"> <br>
+Email : <input name="email" type="text" th:value="${member.email}"> <br>
+<!--Password : <input name="passwrod" type="text" th:text="${member.password}"> <br>-->
+<button type="submit">수정하기</button>
+</form>
+</body>
+</html>
